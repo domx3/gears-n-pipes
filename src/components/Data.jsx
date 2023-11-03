@@ -4,11 +4,20 @@
 
 export const cardPaths = [
 
-  '/src/assets/card-welcome.jpg',
-  '/src/assets/card-brackets.jpg',
-  '/src/assets/card-space.jpg',
-  '/src/assets/card-lamp.jpg',
-  '/src/assets/card-end.jpg',
+  'cards/card-welcome.jpg',
+  'cards/card-brackets.jpg',
+  'cards/card-space.jpg',
+  'cards/card-lamp.jpg',
+  'cards/card-end.jpg',
+]
+
+export const cardMPaths = [
+
+  'cards-m/card-welcome-m.jpg',
+  'cards-m/card-brackets-m.jpg',
+  'cards-m/card-space-m.jpg',
+  'cards-m/card-lamp-m.jpg',
+  'cards-m/card-end-m.jpg',
 ]
 
 export const pageLinks = [

@@ -9,13 +9,13 @@ import { degToRad } from 'three/src/math/MathUtils'
 //import { useControls } from 'leva'
 
 
-export default function Scene({lookHome}) {
+export default function Scene({ lookHome, setToast }) {
   
   const cameraControlsRef = useRef()
   const [iCard, setICard] = useState(0)
 
 
-  const {camera} = useThree()
+  //const {camera} = useThree()
   
 /*   
   const {minPolar, maxPolar, maxDistance, minDistance} = useControls({
@@ -60,7 +60,7 @@ export default function Scene({lookHome}) {
     <>
         <fog attach="fog" color="black" near={2} far={12} />
         
-        <Environment files="src/assets/pipe_1k.hdr" intensity='0.1' />
+        <Environment files="pipe_1k.hdr" intensity='0.1' />
 
          <CameraControls ref={cameraControlsRef} 
           
@@ -82,6 +82,7 @@ export default function Scene({lookHome}) {
         <Gears 
           lookAtLever={lookAtLever}
           iCard={iCard}
+          setToast={setToast}
         />
 
         <Pipes />

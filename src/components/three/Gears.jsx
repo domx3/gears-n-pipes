@@ -4,7 +4,6 @@ import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 //import { degToRad } from 'three/src/math/MathUtils'
 import { useSpring, animated } from '@react-spring/three'
-import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import VisitModal from '../VisitModal'
 import Steam from '../Steam'
 
@@ -12,7 +11,7 @@ const model_path = '../../objects/gears.glb'
 
 
 
-export function Gears({ lookAtLever, iCard}) {
+export function Gears({ lookAtLever, iCard, setToast}) {
   const group = useRef()
   const lever = useRef()
   const wireRef = useRef()
@@ -34,7 +33,7 @@ export function Gears({ lookAtLever, iCard}) {
       actions[name].stop()  
   })
 
-  const { set, invalidate } = useThree();
+  const { set, invalidate } = useThree()
   //console.log(frameLoop)
 
   useEffect(()=>{
@@ -148,6 +147,7 @@ export function Gears({ lookAtLever, iCard}) {
           <VisitModal 
             setVisitOn={setVisitOn}
             iCard={iCard}
+            setToast={setToast}
           /> 
         </Html>         
       }
