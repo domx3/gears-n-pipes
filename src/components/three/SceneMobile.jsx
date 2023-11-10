@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { CameraControls, Environment } from '@react-three/drei'
+import { CameraControls, Clouds, Environment } from '@react-three/drei'
 import { Phone } from './Phone'
 //import { useControls } from 'leva'
 
@@ -46,7 +46,7 @@ function SceneMobile({lookHome, setToast}) {
           setToast={setToast}
         
         />
-       
+
        <directionalLight position={[10, 40, 10]} decay={0} distance={45} penumbra={1} intensity={1}  castShadow/>
 {/*         <ambientLight intensity={1} />
         <spotLight position={[-20, 0, 10]} color="red" angle={0.15} decay={0} penumbra={-1} intensity={100} />

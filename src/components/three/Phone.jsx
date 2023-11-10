@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useSpring, animated } from '@react-spring/three'
-import { cardMPaths } from '../Data'
+import { cardMPaths } from '../../Data'
 import { useControls } from 'leva'
 import { CardMobile } from './CardMobile'
 import { useThree } from '@react-three/fiber'
@@ -75,9 +75,9 @@ const {x1, y1} = useControls({
   return (
     <group ref={group} dispose={null} position={[0, 0, 0]}>
         
-        <mesh name="floor" geometry={nodes.floor.geometry} scale={18.421} position={[0, 0.19, 0]} receiveShadow >
+{/*         <mesh name="floor" geometry={nodes.floor.geometry} scale={18.421} position={[0, 0.19, 0]} receiveShadow >
           <meshStandardMaterial color={0xFFAEF8} roughness={0.7} />
-        </mesh>
+        </mesh> */}
 
       <group name="phone" rotation={[0.0, 0.0, -0.0]}>
         <group name="case" position={[0.012, 1.22, -0.002]} scale={[0.85, 0.85, 0.057]} castShadow>

@@ -1,16 +1,39 @@
 import React, {useState} from 'react'
 import Scene from './three/Scene';
-import {motion} from 'framer-motion'
+
 import { Canvas} from '@react-three/fiber'
 import SceneMobile from './three/SceneMobile';
 
-export default function Hero({lookHome, setToast}) {
+import FrontOptions from './FrontOptions';
 
-  const [mobile, setMobile] = useState(true)
+export default function Hero({lookHome, setToast, mobile, frontPage, showDesktop, showMobile}) {
+
+  const [qlist, setQlist] = useState(false)
 
   const cameraPosition = mobile ? [3, 2, 5.5] : [0, 3, 6.5]
+
+
+ 
   return (
+    <>
     <div className='text-white flex flex-col items-center'>
+    {frontPage ?
+      <div className='w-full'>
+        <h1 
+          className=' text-4xl font-bold py-6 mb-10 px-4 text-center'
+          >
+            Domx3 GitHub Pages
+        </h1>
+        <p className='text-lg md:text-xl text-center font-normal my-20 text-slate-300'>
+          browse through my github pages</p>
+        <FrontOptions
+          showDesktop={showDesktop}
+          showMobile={showMobile}
+          qlist={qlist}
+          setQlist={setQlist}
+        />
+      </div>
+      :
       <div className='fixed top-0  w-full h-full'>
         <Canvas 
           frameloop='demand'
@@ -18,17 +41,21 @@ export default function Hero({lookHome, setToast}) {
           shadows
           //flat linear
         >
-          {/* <Scene 
-            lookHome={lookHome}
-            setToast={setToast}
-          />
-           */}
-          <SceneMobile 
-            lookHome={lookHome}
-            setToast={setToast}
-          />
+          {mobile ? 
+            <SceneMobile 
+              lookHome={lookHome}
+              setToast={setToast}
+            />
+            :
+            <Scene 
+              lookHome={lookHome}
+              setToast={setToast}
+              />
+          }
         </Canvas>
       </div>
+}
     </div>
+  </>  
   )
 }

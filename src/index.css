@@ -5,14 +5,19 @@
 html, body {
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 body {
-   background-color: #000300;
+   background-color: rgb(51 65 85);
 }
 
 .logo{
   z-index: 10;
+}
+
+.minh {
+  min-height: 450px;
 }
 
 .Toastify__close-button {
@@ -21,4 +26,56 @@ body {
 
 .Toastify__toast-container {
   width: fit-content !important;
+}
+
+.desktop-gears:hover #gear-top {
+  animation: gear1 3s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.desktop-gears:hover #gear-bot {
+  animation: gear2 3s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+
+.phone-gears:hover #gear-phone {
+  animation: gear1 2s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.list-rotate:hover #lines-g {
+  animation: list-animation 2.5s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes gear1 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes gear2 {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes list-animation {
+  from{
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }

@@ -5,7 +5,7 @@ import { useThree } from '@react-three/fiber'
 //import { degToRad } from 'three/src/math/MathUtils'
 import { useSpring, animated } from '@react-spring/three'
 import VisitModal from '../VisitModal'
-import Steam from '../Steam'
+//import Steam from './Steam'
 
 const model_path = '../../objects/gears.glb'
 

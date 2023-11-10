@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { Card } from './Card'
 import { useControls } from 'leva'
-import { cardPaths } from '../Data'
+import { cardPaths } from '../../Data'
 import { useSpring, animated } from '@react-spring/three'
 import { useThree } from '@react-three/fiber'
 

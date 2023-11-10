@@ -1,5 +1,5 @@
 import React from 'react'
-import { pageLinks } from './Data'
+import { pageLinks } from '../Data'
 
 function VisitModal({ setVisitOn, iCard, setToast }) {
 
@@ -13,30 +13,30 @@ function VisitModal({ setVisitOn, iCard, setToast }) {
   return (
     <>
     {showLinks ?
-    <div className='w-[260px] h-[180px] flex flex-col items-center justify-between bg-slate-800 rounded-md'>
+    <div className='w-[320px] md:w-[390px] h-[270px] flex flex-col items-center justify-between bg-slate-800 rounded-md'>
       <span className='flex justify-center'>
-        <h2 className='text-white font-light mt-8 text-md mx-4'>Redirecting to <span className='font-medium'>{pageLinks[iCard].name}</span> app. Enjoy your visit!</h2>
-        <div className='fixed right-2 top-2 cursor-pointer hover:scale-105 duration-300' 
+        <h2 className='text-white font-light mt-16 text-2xl mx-4'>Redirecting to <span className='font-medium'>{pageLinks[iCard].name}</span> app. Enjoy your visit!</h2>
+        <div className='fixed right-2 top-2 cursor-pointer hover:scale-110 duration-300' 
           onClick={() => setVisitOn(false)}>
-          <img src="esc.svg" alt="esc" />  
+          <img src="icons/esc-b.svg" className='scale-150 m-2' alt="esc" />  
         </div>
       </span>
-      <div className='flex justify-between'>
-        <div className=' rounded-lg bg-amber-700 text-sm p-2 m-4 mb-6 cursor-pointer shadow-lg hover:scale-105 duration-300'
+      <div className='flex justify-between mb-8'>
+        <div className=' rounded-lg bg-amber-700 text-lg p-2 mr-12 cursor-pointer shadow-lg hover:scale-105 duration-300'
           onClick={copyLink}>
           Copy link
         </div>
-        <a className='border-2  rounded-lg bg-amber-600 p-2 text-sm m-4 mb-6 shadow-lg hover:scale-105 duration-300' 
+        <a className='border-2  rounded-lg bg-amber-600 p-2 text-lg shadow-lg hover:scale-105 duration-300' 
           href={pageLinks[iCard].link} target="_blank" rel="noopener noreferrer">
           Go to app
         </a>
       </div>
     </div>
     :
-    <div className='w-[150px] h-[90px] flex flex-col items-center justify-between bg-slate-800 rounded-md'>
-      <h2 className='text-white font-light mt-8 text-md mx-4'>There are no links for this page.</h2>
+    <div className='w-[280px] h-[180px] flex flex-col items-center justify-between bg-slate-800 rounded-md'>
+      <h2 className='text-white font-light mt-16 text-2xl mx-4'>There are no links for this page.</h2>
       <div className='fixed right-2 top-2 cursor-pointer' onClick={() => setVisitOn(false)}>
-          <img src="esc.svg" alt="esc" />  
+          <img src="icons/esc-b.svg" className='scale-150 m-2' alt="esc" />  
         </div>
     </div>
     }

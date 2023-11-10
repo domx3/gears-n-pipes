@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="39.688mm" height="39.688mm" version="1.1" viewBox="0 0 39.687 39.688" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient9655" x1="-280.43" x2="-279.69" y1="416.14" y2="509.24" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient9653"/>
+  <linearGradient id="linearGradient9653">
+   <stop stop-color="#333" offset="0"/>
+   <stop stop-color="#d9d9d9" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <rect x="-3.5527e-15" width="39.688" height="39.688" fill="none" stop-color="#000000" stroke-linecap="square" stroke-linejoin="bevel" stroke-opacity=".81834" stroke-width=".26458"/>
+ <g id="list" transform="matrix(.16667 0 0 .16667 66.993 -54.345)" fill="url(#linearGradient9655)" stroke="url(#linearGradient9655)" stroke-linecap="square" stroke-linejoin="bevel" stroke-opacity=".81834" stroke-width=".60463">
+  <circle cx="-350.61" cy="393.11" r="11.654" stop-color="#000000"/>
+  <rect x="-317.14" y="381.45" width="113.62" height="23.308" ry="11.654" stop-color="#000000"/>
+  <circle cx="-350.61" cy="427.79" r="11.654" stop-color="#000000"/>
+  <rect x="-317.14" y="416.14" width="113.62" height="23.308" ry="11.654" stop-color="#000000"/>
+  <circle cx="-350.61" cy="462.47" r="11.654" stop-color="#000000"/>
+  <rect x="-317.14" y="450.82" width="113.62" height="23.308" ry="11.654" stop-color="#000000"/>
+  <circle cx="-350.61" cy="497.15" r="11.654" stop-color="#000000"/>
+  <rect x="-317.14" y="485.5" width="113.62" height="23.308" ry="11.654" stop-color="#000000"/>
+ </g>
+</svg>
