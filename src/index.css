@@ -5,19 +5,21 @@
 html, body {
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
+  
 }
 
 body {
    background-color: rgb(51 65 85);
 }
 
-.logo{
-  z-index: 10;
+.log:hover{
+  scale: 200%;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .minh {
-  min-height: 450px;
+  min-height: 350px;
 }
 
 .Toastify__close-button {
@@ -49,6 +51,12 @@ body {
 
 .list-rotate:hover #lines-g {
   animation: list-animation 2.5s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#three-g{
+  animation: list-animation 4s infinite linear;
   transform-origin: center;
   transform-box: fill-box;
 }

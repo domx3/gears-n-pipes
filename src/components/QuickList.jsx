@@ -7,7 +7,7 @@ export default function QuickList() {
   const pages = pageLinks.slice(2,pageLinks.length)
 
   return (
-    <div className='mx-auto mt-16 text-center'> 
+    <div className='mx-auto mt-16 text-center overflow-x-hidden'> 
       <div className='flex items-center flex-col'>
         {pages.map((page, i) =>  (
             <motion.div

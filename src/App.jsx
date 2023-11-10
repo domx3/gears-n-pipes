@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import FrontPage from './components/FrontPage'
 import { useDetectGPU } from '@react-three/drei'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,7 +30,6 @@ function App() {
   
   return (
     <>
-      <div>
         <Navbar 
           lookHome={lookHome} 
           setLookHome={setLookHome}
@@ -39,7 +38,7 @@ function App() {
           setMobile={setMobile}
           setFrontPage={setFrontPage}
         />
-        <Hero 
+        <FrontPage 
           lookHome={lookHome}
           setToast={setToast}
           mobile={mobile}
@@ -49,7 +48,6 @@ function App() {
           //gpuMobile={GPUTier}
         />
         <Footer />
-      </div>
 
       <div className='text-black'>
         <ToastContainer
