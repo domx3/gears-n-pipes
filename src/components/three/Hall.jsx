@@ -2,7 +2,7 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-const object_path = '../objects/hall.glb'
+const object_path = 'objects/hall.glb'
 
 export default function Hall() {
   const { nodes, materials } = useGLTF(object_path)

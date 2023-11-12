@@ -7,7 +7,7 @@ import { useSpring, animated } from '@react-spring/three'
 import VisitModal from '../VisitModal'
 //import Steam from './Steam'
 
-const model_path = '../../objects/gears.glb'
+const model_path = 'objects/gears.glb'
 
 
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useThree } from '@react-three/fiber'
 import { CameraControls, Environment } from '@react-three/drei'
 import { Computer } from './Computer'
 import { Gears } from './Gears'

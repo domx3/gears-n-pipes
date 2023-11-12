@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import FrontPage from './components/FrontPage'
-import { useDetectGPU } from '@react-three/drei'
+//import { useDetectGPU } from '@react-three/drei'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Footer';
@@ -47,7 +47,9 @@ function App() {
           showMobile={showMobile}
           //gpuMobile={GPUTier}
         />
-        <Footer />
+        {frontPage && 
+          <Footer />
+        }
 
       <div className='text-black'>
         <ToastContainer

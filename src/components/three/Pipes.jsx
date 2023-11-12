@@ -1,7 +1,7 @@
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-const model_path = '../../objects/pipes.glb'
+const model_path = 'objects/pipes.glb'
 
 export function Pipes(props) {
   

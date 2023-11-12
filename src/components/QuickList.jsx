@@ -4,7 +4,7 @@ import { pageLinks } from '../Data'
 
 export default function QuickList() {
 
-  const pages = pageLinks.slice(2,pageLinks.length)
+  const pages = pageLinks.slice(1,pageLinks.length-1)
 
   return (
     <div className='mx-auto mt-16 text-center overflow-x-hidden'> 

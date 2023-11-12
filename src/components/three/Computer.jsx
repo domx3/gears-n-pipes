@@ -7,7 +7,7 @@ import { useSpring, animated } from '@react-spring/three'
 import { useThree } from '@react-three/fiber'
 
 
-const model_path = '../../objects/computer.glb'
+const model_path = 'objects/computer.glb'
 const centerNeedle = {rotZ: 1.13}
 let rot = [0,0,0];
 

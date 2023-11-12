@@ -2,14 +2,14 @@ import React, { useRef, useState } from 'react'
 import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useSpring, animated } from '@react-spring/three'
 import { cardMPaths } from '../../Data'
-import { useControls } from 'leva'
+//import { useControls } from 'leva'
 import { CardMobile } from './CardMobile'
 import { useThree } from '@react-three/fiber'
 import { LoopOnce } from 'three'
 import VisitModal from '../VisitModal'
 
 
-const path = "../objects/mobile.glb"
+const path = "objects/mobile.glb"
 
 export function Phone({lookAtScreen, setToast}) {
 

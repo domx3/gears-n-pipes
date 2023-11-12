@@ -6,8 +6,7 @@ import { Phone } from './Phone'
 function SceneMobile({lookHome, setToast}) {
 
   const cameraControlsRef = useRef()
-  const [iCard, setICard] = useState(0)
-
+  
   const lookAtScreen = () => {
     let position = [0, 1.4, 2.9]
     let target = [0, 1.3, 0.5]

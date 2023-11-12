@@ -28,7 +28,7 @@ export default function Navbar({lookHome, setLookHome, mobile, frontPage, setMob
     <div className='sticky top-0 z-10'>
       <div className=' flex justify-between items-center h-24  max-w-[1240px] text-white px-4 mx-auto'>
         <div className='flex cursor-pointer z-10' onClick={()=>setLookHome(!lookHome)}>
-          <img src='icons/logo1.svg' width='45px' className="logo hover:scale-[170%] duration-500 ease-in-out" alt="Logo" />
+          <img src='icons/Domx3-logo.svg' width='45px' className="logo hover:scale-[170%] duration-500 ease-in-out" alt="Logo" />
           {/* <h1 className='text-xl italic font-bold'></h1> */}
         </div>
         <div className='z-10 cursor-pointer hover:scale-110 duration-300 ease-linear' onClick={handleNav}>
