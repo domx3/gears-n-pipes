@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Scene from './three/Scene';
 
 import { Canvas} from '@react-three/fiber'
@@ -10,10 +10,25 @@ import { TitleSvg } from './FrontSvg';
 export default function FrontPage({lookHome, setToast, mobile, frontPage, showDesktop, showMobile}) {
 
   const [qlist, setQlist] = useState(false)
+  const [pages, setPages] = useState([])
 
   const cameraPosition = mobile ? [3, 2, 5.5] : [0, 3, 6.5]
 
+  const scrollToQList = () => {    
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    })
+  } 
 
+  useEffect(() => {
+    fetch("/data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setPages(data.pages)
+      })
+      .catch((error) => console.log(error));
+    }, []);
  
   return (
     <>
@@ -37,13 +52,13 @@ export default function FrontPage({lookHome, setToast, mobile, frontPage, showDe
             There are <span className='font-semibold'>three ways</span> to explore around.
             You can navigate with one of my <span className='font-semibold'>two devices</span>.
             I recommend choosing one based on your <span className='font-semibold'>rendering</span> resources and <span className='font-semibold'>orientation</span>.
-            <br/><br/>And those in a hurry can use a <a href='#qlist' className='text-slate-100 font-semibold italic'>quick list</a> at the bottom.
-
-            
+            <br/><br/>Those in a hurry can use a 
+            <span onClick={scrollToQList} className='text-slate-100 font-semibold italic cursor-pointer'> quick list</span> at the bottom.
           </p>
 
         </div>
         <FrontOptions
+          pages={pages}
           lookHome={lookHome}
           showDesktop={showDesktop}
           showMobile={showMobile}
@@ -60,12 +75,14 @@ export default function FrontPage({lookHome, setToast, mobile, frontPage, showDe
           //flat linear
         >
           {mobile ? 
-            <SceneMobile 
+            <SceneMobile
+              pages={pages}
               lookHome={lookHome}
               setToast={setToast}
             />
             :
-            <Scene 
+            <Scene
+              pages={pages}
               lookHome={lookHome}
               setToast={setToast}
               />

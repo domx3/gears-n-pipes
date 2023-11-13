@@ -8,9 +8,9 @@ extend({
   CardTransitionMaterial,
 });
 
-export function CardMobile({iCard, cardPaths, lookAtScreen}) {
+export function CardMobile({ pages, iCard, lookAtScreen}) {
   
-  const cardTextures = useLoader(TextureLoader, cardPaths)
+  const cardTextures = useLoader(TextureLoader, pages.map((page)=> 'cards-m/card-'+page.card+'-m.jpg'))
   const ref = useRef();
   const {invalidate} = useThree()
   

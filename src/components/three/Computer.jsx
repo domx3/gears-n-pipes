@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef,  } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { Card } from './Card'
 import { useControls } from 'leva'
-import { cardPaths } from '../../Data'
 import { useSpring, animated } from '@react-spring/three'
 import { useThree } from '@react-three/fiber'
 
@@ -11,9 +10,8 @@ const model_path = 'objects/computer.glb'
 const centerNeedle = {rotZ: 1.13}
 let rot = [0,0,0];
 
-export function Computer({lookAtScreen, iCard, setICard}) {
+export function Computer({pages, lookAtScreen, iCard, setICard}) {
 
-  //const {iCard, setICard} = useContext(cardContext)
   const needleCenter = useRef()
   const { nodes, materials } = useGLTF(model_path)
   
@@ -24,12 +22,12 @@ export function Computer({lookAtScreen, iCard, setICard}) {
   }
 
   function nextCard() {    
-    setICard((iCard +1) % cardPaths.length === 0 ? 0 : iCard + 1)
+    setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
   }
     
 
   const { cNeedleRot } = useSpring({
-    to: { cNeedleRot: [-0.334, -0.063, 1.13 - iCard * 2.27 /(cardPaths.length-1)] },
+    to: { cNeedleRot: [-0.334, -0.063, 1.13 - iCard * 2.27 /(pages.length-1)] },
     config: { duration: 500 },
     onChange: (result) => {     
       needleCenter.current.rotation.set(...result.value.cNeedleRot);
@@ -106,8 +104,8 @@ export function Computer({lookAtScreen, iCard, setICard}) {
       
     </group>
     <Card 
+      pages={pages}
       iCard={iCard}
-      cardPaths={cardPaths}
       lookAtScreen={lookAtScreen}
     />
     </>

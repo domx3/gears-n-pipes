@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { ComputerSvg, PhoneSvg } from './FrontSvg'
 import QuickList from './QuickList'
 
-export default function FrontOptions({lookHome, showDesktop, showMobile, qlist, setQlist }) {
+export default function FrontOptions({ pages, lookHome, showDesktop, showMobile, qlist, setQlist }) {
 
   useEffect(() => {
     window.scroll({top: 0,left: 0, behavior: 'smooth'})
@@ -54,7 +54,9 @@ export default function FrontOptions({lookHome, showDesktop, showMobile, qlist, 
         <img src='front/list.svg' alt='list'
           className='mt-16 scale-150 hover:scale-125 ease-in-out duration-500'/>
           :
-          <QuickList />
+          <QuickList
+            pages={pages}
+          />
           
       }
       </div>

@@ -1,15 +1,14 @@
 import React from 'react'
 import {motion} from 'framer-motion'
-import { pageLinks } from '../Data'
 
-export default function QuickList() {
+export default function QuickList({pages}) {
 
-  const pages = pageLinks.slice(1,pageLinks.length-1)
+  const pages2 = pages.slice(1, pages.length-1)
 
   return (
     <div className='mx-auto mt-16 text-center overflow-x-hidden'> 
       <div className='flex items-center flex-col'>
-        {pages.map((page, i) =>  (
+        {pages2.map((page, i) =>  (
             <motion.div
               key={page.name}
               animate={i%2===0 ? {x:[2000,0]} : {x:[-2000,0]}}
@@ -19,7 +18,8 @@ export default function QuickList() {
               <a className="text-xl text-slate-400 font-semibold mr-2 hover:text-slate-100" 
                 
                 href={page.link}
-                target="_blank" rel="noopener noreferrer"
+                target={i===0 ? "_self" : "_blank" }
+                rel="noopener noreferrer"
                 
               >{page.name} </a>
               <img width='16px' src='icons/link.svg' alt='link'/>

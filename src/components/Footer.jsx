@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <div className=''>
-      <div className='flex justify-center items-center gap-16 my-10'>
+      <div className='flex justify-center items-center gap-16 mt-16 mb-20'>
         <a href='https://github.com/domx3'
         target="_blank" rel="noopener noreferrer">
           <FaGithubSquare size={30}/>

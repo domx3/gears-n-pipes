@@ -8,7 +8,7 @@ import { degToRad } from 'three/src/math/MathUtils'
 //import { useControls } from 'leva'
 
 
-export default function Scene({ lookHome, setToast }) {
+export default function Scene({ pages, lookHome, setToast }) {
   
   const cameraControlsRef = useRef()
   const [iCard, setICard] = useState(0)
@@ -72,13 +72,15 @@ export default function Scene({ lookHome, setToast }) {
           smoothTime={0.33}
         />
 
-        <Computer 
+        <Computer
+          pages={pages}
           lookAtScreen={lookAtScreen}
           iCard={iCard}
           setICard={setICard}
         />
 
-        <Gears 
+        <Gears
+          pages={pages}
           lookAtLever={lookAtLever}
           iCard={iCard}
           setToast={setToast}

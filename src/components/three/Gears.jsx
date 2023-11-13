@@ -11,7 +11,8 @@ const model_path = 'objects/gears.glb'
 
 
 
-export function Gears({ lookAtLever, iCard, setToast}) {
+export function Gears({ pages, lookAtLever, iCard, setToast}) {
+
   const group = useRef()
   const lever = useRef()
   const wireRef = useRef()
@@ -145,6 +146,7 @@ export function Gears({ lookAtLever, iCard, setToast}) {
           center
         >
           <VisitModal 
+            pages={pages}
             setVisitOn={setVisitOn}
             iCard={iCard}
             setToast={setToast}

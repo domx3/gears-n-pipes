@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useSpring, animated } from '@react-spring/three'
-import { cardMPaths } from '../../Data'
 //import { useControls } from 'leva'
 import { CardMobile } from './CardMobile'
 import { useThree } from '@react-three/fiber'
@@ -11,7 +10,7 @@ import VisitModal from '../VisitModal'
 
 const path = "objects/mobile.glb"
 
-export function Phone({lookAtScreen, setToast}) {
+export function Phone({ pages, lookAtScreen, setToast}) {
 
   const group = useRef()
   const { nodes, materials, animations } = useGLTF(path)
@@ -62,7 +61,7 @@ export function Phone({lookAtScreen, setToast}) {
   }
 
   function nextCard() {    
-    setICard((iCard +1) % cardMPaths.length === 0 ? 0 : iCard + 1)
+    setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
   }
 
   
@@ -106,9 +105,9 @@ const {x1, y1} = useControls({
         </group>
         
 {        <CardMobile 
+          pages={pages}
           iCard={iCard}
           lookAtScreen={lookAtScreen}
-          cardPaths={cardMPaths}
         />}
 
         { visitOn && 
@@ -116,7 +115,8 @@ const {x1, y1} = useControls({
             position={[0, 1, 0.5]}
             center
           >
-            <VisitModal 
+            <VisitModal
+              pages={pages}
               setVisitOn={setVisitOn}
               iCard={iCard}
               setToast={setToast}

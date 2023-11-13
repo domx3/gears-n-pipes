@@ -3,7 +3,7 @@ import { CameraControls, Clouds, Environment } from '@react-three/drei'
 import { Phone } from './Phone'
 //import { useControls } from 'leva'
 
-function SceneMobile({lookHome, setToast}) {
+function SceneMobile({ pages, lookHome, setToast}) {
 
   const cameraControlsRef = useRef()
   
@@ -40,7 +40,8 @@ function SceneMobile({lookHome, setToast}) {
           smoothTime={0.33}
         />
 
-        <Phone  
+        <Phone
+          pages={pages}
           lookAtScreen={lookAtScreen}
           setToast={setToast}
         

@@ -8,14 +8,16 @@ extend({
   CardTransitionMaterial,
 });
 
-export function Card({iCard, cardPaths, lookAtScreen}) {
+export function Card({pages, iCard, lookAtScreen}) {
   
-  const cardTextures = useLoader(TextureLoader, cardPaths)
+  const cardTextures = useLoader(TextureLoader, pages.map((page)=> 'cards/card-' + page.card + '.jpg'))
   const ref = useRef();
   const {invalidate} = useThree()
   
   const [prevICard, setPrevICard] = useState(0)
   const [trans, setTrans] = useState(false)
+
+  useEffect
 
   useEffect(() =>{
     setTrans(true)
