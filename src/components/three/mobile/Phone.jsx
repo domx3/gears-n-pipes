@@ -5,7 +5,7 @@ import { useSpring, animated } from '@react-spring/three'
 import { CardMobile } from './CardMobile'
 import { useThree } from '@react-three/fiber'
 import { LoopOnce } from 'three'
-import VisitModal from '../VisitModal'
+
 
 
 const path = "objects/mobile.glb"
@@ -23,10 +23,11 @@ export function Phone({ pages, lookAtScreen, setToast}) {
   const [ onOff, setOnOff ] = useState(false)
   const [visitOn, setVisitOn] = useState(false)
   const [ iCard, setICard ] = useState(0)
+  const [trans, setTrans] = useState(false)
 
   const { sliderPos } = useSpring({
     sliderPos: onOff ?  [0.297, 2.129, -0.003] : [0.357, 2.129, -0.003],
-    onChange: () => invalidate()
+    //onChange: () => invalidate()
   })
   
   const playAll = () => actionNames.map((name) => {
@@ -41,10 +42,10 @@ export function Phone({ pages, lookAtScreen, setToast}) {
 
     if(!onOff) {
       playAll()
-      set({frameloop:'always'})
+      //set({frameloop:'always'})
    }else{
       stopAll()
-      set({frameloop:'demand'})
+      //set({frameloop:'demand'})
     }
     setOnOff(!onOff) 
   }
@@ -52,16 +53,18 @@ export function Phone({ pages, lookAtScreen, setToast}) {
   mixer.addEventListener('finished', (e) => {
     if(e?.action['_cacheIndex'] === 4){
       toggleOnOff()
-      set({frameloop:'demand'})
+      //set({frameloop:'demand'})
     }
   });
 
   function previousCard() {
-    setICard(iCard > 0 ? iCard - 1 : 0)
+    if(!trans)
+      setICard(iCard > 0 ? iCard - 1 : 0)
   }
 
-  function nextCard() {    
-    setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
+  function nextCard() {
+    if(!trans)
+      setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
   }
 
   
@@ -103,26 +106,15 @@ const {x1, y1} = useControls({
             onClick={nextCard}
           />
         </group>
-        
-{        <CardMobile 
+        <CardMobile 
           pages={pages}
           iCard={iCard}
           lookAtScreen={lookAtScreen}
-        />}
-
-        { visitOn && 
-          <Html 
-            position={[0, 1, 0.5]}
-            center
-          >
-            <VisitModal
-              pages={pages}
-              setVisitOn={setVisitOn}
-              iCard={iCard}
-              setToast={setToast}
-            /> 
-          </Html>         
-        }
+          trans={trans}
+          setTrans={setTrans}
+        /> 
+        {/* 
+        */}
 
         <mesh name="backscreen" geometry={nodes.backscreen.geometry} position={[0.03, 1.215, 0]} scale={[0.85, 0.85, 0.057]}>
           <meshPhysicalMaterial roughness={0.1} transmission={1} thickness={0.05}/>

@@ -2,33 +2,18 @@
 {
   "pages" : [
     {
-      "name": "Welcome", 
-      "card" : "welcome", 
+      "name": "card1", 
+      "card" : "card1", 
       "link": "#"
     },
     {
-      "name": "Homepage",
-      "card" : "homepage", 
-      "link": "https://domx3.github.io"
+      "name": "card2",
+      "card" : "card2", 
+      "link": "#"
     },
     {
-      "name": "Brackets",
-      "card" : "brackets", 
-      "link": "https://domx3.github.io/brackets"
-    },
-    {
-      "name": "Space Tour",
-      "card" : "space", 
-      "link": "https://domx3.github.io/space-tour"
-    },
-    {
-      "name": "Hello Lamp",
-      "card" : "lamp", 
-      "link": "https://domx3.github.io/hello-lamp"
-    },
-    {
-      "name": "End",
-      "card" : "end", 
+      "name": "card3",
+      "card" : "card3", 
       "link": "#"
     }
   ]

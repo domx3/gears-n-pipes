@@ -3,30 +3,16 @@
 */
 
 export const cardPaths = [
-
-  'cards/card-welcome.jpg',
-  'cards/card-homepage.jpg',
-  'cards/card-brackets.jpg',
-  'cards/card-space.jpg',
-  'cards/card-lamp.jpg',
-  'cards/card-end.jpg',
+  'cards/card1.jpg',
+  'cards/card2.jpg',
 ]
 
 export const cardMPaths = [
-
-  'cards-m/card-welcome-m.jpg',
-  'cards-m/card-homepage-m.jpg',
-  'cards-m/card-brackets-m.jpg',
-  'cards-m/card-space-m.jpg',
-  'cards-m/card-lamp-m.jpg',
-  'cards-m/card-end-m.jpg',
+  'cards-m/card1-m.jpg',
+  'cards-m/card2-m.jpg',
 ]
 
 export const pageLinks = [
-  {name: 'Welcome', link: '#'},
-  {name: 'Homepage', link: '#'},
-  {name: 'Brackets', link: 'https://domx3.github.io/brackets'},
-  {name: 'Space Tour', link: 'https://domx3.github.io/space-tour'},
-  {name: 'Hello Lamp', link: 'https://domx3.github.io/hello-lamp'},
-  {name: 'End', link: '#'},
+  {name: 'card1', link: '#'},
+  {name: 'card2', link: '#'},
 ]

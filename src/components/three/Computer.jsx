@@ -1,9 +1,9 @@
-import React, { useRef,  } from 'react'
+import React, { useRef, useState,  } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { Card } from './Card'
 import { useControls } from 'leva'
 import { useSpring, animated } from '@react-spring/three'
 import { useThree } from '@react-three/fiber'
+import { Card } from './Card'
 
 
 const model_path = 'objects/computer.glb'
@@ -14,15 +14,18 @@ export function Computer({pages, lookAtScreen, iCard, setICard}) {
 
   const needleCenter = useRef()
   const { nodes, materials } = useGLTF(model_path)
+  const [trans, setTrans] = useState(false)
   
   const { invalidate } = useThree();
 
   function previousCard() {
-    setICard(iCard > 0 ? iCard - 1 : 0)
+    if(!trans)
+      setICard(iCard > 0 ? iCard - 1 : 0)
   }
 
-  function nextCard() {    
-    setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
+  function nextCard() {
+    if(!trans)
+      setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
   }
     
 
@@ -103,11 +106,15 @@ export function Computer({pages, lookAtScreen, iCard, setICard}) {
       </mesh>
       
     </group>
+
     <Card 
-      pages={pages}
-      iCard={iCard}
       lookAtScreen={lookAtScreen}
+      iCard={iCard}
+      pages={pages}
+      trans={trans}
+      setTrans={setTrans}
     />
+
     </>
   )
 }

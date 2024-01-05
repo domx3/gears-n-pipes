@@ -5,6 +5,7 @@ import { Gears } from './Gears'
 import { Pipes } from './Pipes.jsx'
 import Hall from './Hall'
 import { degToRad } from 'three/src/math/MathUtils'
+import SteamClouds from './SteamClouds.jsx'
 //import { useControls } from 'leva'
 
 
@@ -28,6 +29,8 @@ export default function Scene({ pages, lookHome, setToast }) {
   useEffect(()=>{
     //disable pan  
     cameraControlsRef.current.mouseButtons.right = 0
+    document.body.style.backgroundColor = '#131417'
+    return ()=> document.body.style.backgroundColor = '#334155'
   },[])
 
   const lookAtHome = () => {
@@ -89,11 +92,13 @@ export default function Scene({ pages, lookHome, setToast }) {
         <Pipes />
 
         <Hall />
+
+        <SteamClouds />
        
-        <ambientLight intensity={1} />
+        {/* <ambientLight intensity={1} />
         <spotLight position={[0, 40, 0]} decay={0} distance={45} penumbra={1} intensity={10} />
         <spotLight position={[-20, 0, 10]} color="red" angle={0.15} decay={0} penumbra={-1} intensity={10} />
-        <spotLight position={[20, -10, 10]} color="red" angle={0.2} decay={0} penumbra={-1} intensity={10} /> 
+        <spotLight position={[20, -10, 10]} color="red" angle={0.2} decay={0} penumbra={-1} intensity={10} />  */}
  
     </>
   )

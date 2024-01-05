@@ -43,12 +43,14 @@ export const CardTransitionMaterial = shaderMaterial(
       float noiseFactor = noise(gl_FragCoord.xy * 0.4);
       vec2 distortedPosition = vec2(uv.x + dispFactor * noiseFactor, uv.y);
       vec2 distortedPosition2 = vec2(uv.x - (1.0 - dispFactor) * noiseFactor, uv.y);
-      vec4 _texture = texture(tex, distortedPosition);
-      vec4 _texture2 = texture(tex2, distortedPosition2);
+      vec4 _texture = texture2D(tex, distortedPosition);
+      vec4 _texture2 = texture2D(tex2, distortedPosition2);
       vec4 finalTexture = mix(_texture, _texture2, dispFactor);
       gl_FragColor = finalTexture;
       #include <tonemapping_fragment>
       #include <colorspace_fragment>
+      
+
     }`
 );
 

@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-   background-color: rgb(51 65 85);
+   background-color: #334155;
 }
 
 .log:hover{
@@ -19,7 +19,7 @@ body {
 }
 
 .minh {
-  min-height: 350px;
+  min-height: 500px;
 }
 
 .Toastify__close-button {

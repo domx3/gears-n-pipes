@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { CameraControls, Clouds, Environment } from '@react-three/drei'
 import { Phone } from './Phone'
+import SkyClouds from './SkyClouds'
 //import { useControls } from 'leva'
 
 function SceneMobile({ pages, lookHome, setToast}) {
@@ -46,9 +47,11 @@ function SceneMobile({ pages, lookHome, setToast}) {
           setToast={setToast}
         
         />
+        <SkyClouds />
 
-       <directionalLight position={[10, 40, 10]} decay={0} distance={45} penumbra={1} intensity={1}  castShadow/>
+
 {/*         <ambientLight intensity={1} />
+       <directionalLight position={[10, 40, 10]} decay={0} distance={45} penumbra={1} intensity={1}  castShadow/>
         <spotLight position={[-20, 0, 10]} color="red" angle={0.15} decay={0} penumbra={-1} intensity={100} />
         <spotLight position={[20, -10, 10]} color="red" angle={0.2} decay={0} penumbra={-1} intensity={100} />  */}
  

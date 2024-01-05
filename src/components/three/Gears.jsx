@@ -4,7 +4,8 @@ import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 //import { degToRad } from 'three/src/math/MathUtils'
 import { useSpring, animated } from '@react-spring/three'
-import VisitModal from '../VisitModal'
+import { Bloom, EffectComposer } from '@react-three/postprocessing'
+
 //import Steam from './Steam'
 
 const model_path = 'objects/gears.glb'
@@ -45,23 +46,23 @@ export function Gears({ pages, lookAtLever, iCard, setToast}) {
 
   const { leverRot } = useSpring({
     leverRot: onOff ? [0, 0, -0.17]: [0, 0, -0.87],
-    onChange: () => invalidate()
+    //onChange: () => invalidate()
   })
   
   const { drop } = useSpring({
     drop: visitOn ? [2.79, 0, 0] : [0, 0, 0],
-    onChange: () => invalidate(),
+    //onChange: () => invalidate(),
     //onResolve: () => setVisitOn(false)
   })
 
   const toggleOnOff = () => { 
     if(!onOff) {
       playAll()
-      set({frameloop:'always'})
+      //set({frameloop:'always'})
       wireRef.current.material.emissive.setColorName('red') 
    }else{
       stopAll()
-      set({frameloop:'demand'})
+      //set({frameloop:'demand'})
       wireRef.current.material.emissive.setColorName('yellow') 
     }
     setOnOff(!onOff) 
@@ -134,25 +135,11 @@ export function Gears({ pages, lookAtLever, iCard, setToast}) {
       </group>
       
     {/*   {onOff && <Steam />} */}
-      {/* onOff && 
+{/*       { onOff && 
         <EffectComposer>
           <Bloom mipmapBlur luminanceThreshold={9} intensity={2}/>
-        </EffectComposer> */
-      }
-
-      { visitOn && 
-        <Html 
-          position={[0.4, 1.5, 0.5]}
-          center
-        >
-          <VisitModal 
-            pages={pages}
-            setVisitOn={setVisitOn}
-            iCard={iCard}
-            setToast={setToast}
-          /> 
-        </Html>         
-      }
+        </EffectComposer> 
+      } */}
     </group>
     
   )

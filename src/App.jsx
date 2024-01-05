@@ -12,8 +12,8 @@ function App() {
   console.log(GPUTier) */
 
   const [lookHome, setLookHome] = useState(true)
-  const [mobile, setMobile] = useState(true)
-  const [frontPage, setFrontPage] = useState(true)
+  const [mobile, setMobile] = useState(false)
+  const [frontPage, setFrontPage] = useState(false)
   
   const showMobile =() => {
     setMobile(true)
