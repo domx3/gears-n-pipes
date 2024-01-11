@@ -1,0 +1,22 @@
+
+{
+  "pages" : [
+    {
+      "name": "card1", 
+      "card" : "card1", 
+      "link": "#"
+    },
+    {
+      "name": "card2",
+      "card" : "card2", 
+      "link": "#"
+    },
+    {
+      "name": "card3",
+      "card" : "card3", 
+      "link": "#"
+    }
+  ]
+  
+  }
+  
