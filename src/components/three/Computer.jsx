@@ -4,26 +4,45 @@ import { useControls } from 'leva'
 import { useSpring, animated } from '@react-spring/three'
 import { useThree } from '@react-three/fiber'
 import { Card } from './Card'
+import gsap from 'gsap'
 
 
 const model_path = 'objects/computer.glb'
 const centerNeedle = {rotZ: 1.13}
 let rot = [0,0,0];
+const clickSpeed = 0.15
+const btnScaleY = 0.04
+const moveBtn = 0.01
+const mvz = moveBtn * Math.sin(1.222)
+const mvy = moveBtn * Math.cos(1.222)
 
 export function Computer({pages, lookAtScreen, iCard, setICard}) {
 
   const needleCenter = useRef()
+  const lBtnRef = useRef()
+  const rBtnRef = useRef()
   const { nodes, materials } = useGLTF(model_path)
   const [trans, setTrans] = useState(false)
   
   const { invalidate } = useThree();
 
   function previousCard() {
+    // left button press animation
+    const orgZ = lBtnRef.current.position.z
+    const orgY = lBtnRef.current.position.y
+    gsap.to(lBtnRef.current.position, {z: orgZ - mvz, y: orgY - mvy , duration: clickSpeed})
+    gsap.to(lBtnRef.current.position, {z: orgZ, y: orgY, duration: clickSpeed, delay: clickSpeed + 0.01})
+    
     if(!trans)
       setICard(iCard > 0 ? iCard - 1 : 0)
   }
 
   function nextCard() {
+    // right button press animation
+    const orgZ = rBtnRef.current.position.z
+    const orgY = rBtnRef.current.position.y
+    gsap.to(rBtnRef.current.position, {z: orgZ - mvz, y: orgY - mvy , duration: clickSpeed})
+    gsap.to(rBtnRef.current.position, {z: orgZ, y: orgY, duration: clickSpeed, delay: clickSpeed + 0.01})
     if(!trans)
       setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
   }
@@ -43,7 +62,7 @@ export function Computer({pages, lookAtScreen, iCard, setICard}) {
       needleCenter.current.rotation.set(x, y, z);
     }
   }); */
-      
+    
 
 
 /*      const {pos, rot} = useControls({  
@@ -89,12 +108,12 @@ export function Computer({pages, lookAtScreen, iCard, setICard}) {
       <mesh geometry={nodes['label-pages'].geometry} material={materials['label-pages']} position={[-0.066, 1.44, 0.711]} rotation={[1.222, 0, 0]} scale={[0.063, 0.023, 0.034]} />
       <mesh geometry={nodes['label-visit'].geometry} material={materials['label-visit']} position={[0.401, 1.378, 0.728]} rotation={[1.222, 0, 0]} />
 
-      <mesh geometry={nodes['button-left'].geometry} material={materials.button} position={[-0.219, 1.44, 0.71]} rotation={[1.222, 0, 0]} scale={0.037} 
+      <mesh ref={lBtnRef} geometry={nodes['button-left'].geometry} material={materials.button} position={[-0.219, 1.4379, 0.70549]} rotation={[1.222, 0, 0]} scale={[0.037, 0.037 + btnScaleY, 0.037]} 
         onClick={previousCard}
         onPointerOver={(event) => document.body.style.cursor = 'pointer'}
         onPointerOut={(event) => document.body.style.cursor = 'auto'}
       />
-      <mesh geometry={nodes['button-right'].geometry} material={materials.button} position={[0.086, 1.442, 0.71]} rotation={[1.222, 0, 0]} scale={0.037} 
+      <mesh ref={rBtnRef} geometry={nodes['button-right'].geometry} material={materials.button} position={[0.086208, 1.4403, 0.70549]} rotation={[1.222, 0, 0]} scale={[0.037, 0.037 + btnScaleY, 0.037]} 
         onClick={nextCard}
         onPointerOver={(event) => document.body.style.cursor = 'pointer'}
         onPointerOut={(event) => document.body.style.cursor = 'auto'}

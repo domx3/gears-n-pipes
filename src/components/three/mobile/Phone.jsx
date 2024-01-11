@@ -3,16 +3,21 @@ import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useSpring, animated } from '@react-spring/three'
 //import { useControls } from 'leva'
 import { CardMobile } from './CardMobile'
-import { useThree } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import { LoopOnce } from 'three'
+import gsap from 'gsap'
 
 
 
 const path = "objects/mobile.glb"
+const clickSpeed = 0.15
 
 export function Phone({ pages, lookAtScreen, setToast}) {
 
   const group = useRef()
+  const mBtnRef = useRef()
+  const lBtnRef = useRef()
+  const rBtnRef = useRef()
   const { nodes, materials, animations } = useGLTF(path)
   const { actions, mixer } = useAnimations(animations, group)
   const actionNames = Object.keys(actions)
@@ -29,7 +34,7 @@ export function Phone({ pages, lookAtScreen, setToast}) {
     sliderPos: onOff ?  [0.297, 2.129, -0.003] : [0.357, 2.129, -0.003],
     //onChange: () => invalidate()
   })
-  
+
   const playAll = () => actionNames.map((name) => {
     actions[name].setLoop(LoopOnce, 1)
     actions[name].play()
@@ -39,7 +44,6 @@ export function Phone({ pages, lookAtScreen, setToast}) {
   })
 
   const toggleOnOff = () => { 
-
     if(!onOff) {
       playAll()
       //set({frameloop:'always'})
@@ -58,22 +62,35 @@ export function Phone({ pages, lookAtScreen, setToast}) {
   });
 
   function previousCard() {
+    gsap.to(lBtnRef.current.position, {z: 0.05, duration: clickSpeed})
+    gsap.to(lBtnRef.current.position, {z: 0.06, duration: clickSpeed, delay: clickSpeed})
     if(!trans)
       setICard(iCard > 0 ? iCard - 1 : 0)
   }
 
   function nextCard() {
+    gsap.to(rBtnRef.current.position, {z: 0.05, duration: clickSpeed})
+    gsap.to(rBtnRef.current.position, {z: 0.06, duration: clickSpeed, delay: clickSpeed})
     if(!trans)
       setICard((iCard +1) % pages.length === 0 ? 0 : iCard + 1)
   }
 
-  
+  const handleVisit = () => {
+    if(!visitOn) {
+      setToast('No page yet.')
+    }
+    setVisitOn(true)
+    gsap.to(mBtnRef.current.position, {z: 0.055, duration: clickSpeed})
+    gsap.to(mBtnRef.current.position, {z: 0.065, duration: clickSpeed, delay: clickSpeed, 
+      onComplete: ()=> setVisitOn(false)})
+  }
   /*   
 const {x1, y1} = useControls({  
   x1: {value: [0.357, 2.129, -0.003]},
   y1: {value: [0.16, 0, 0]}
 })
  */
+
   return (
     <group ref={group} dispose={null} position={[0, 0, 0]}>
         
@@ -96,13 +113,14 @@ const {x1, y1} = useControls({
             position={sliderPos}
             onClick={toggleOnOff}
           />
-          <mesh name="button-m-center" geometry={nodes['button-m-center'].geometry} material={materials['button-m-center']} position={[0.01, 0.39, 0.06]} rotation={[Math.PI / 2, 0, 0]} scale={[0.052, 0.037, 0.052]} 
-            onClick={()=> setVisitOn(!visitOn)}
+          <mesh ref={mBtnRef} name="button-m-center" geometry={nodes['button-m-center'].geometry} material={materials['button-m-center']} position={[0.01, 0.39,0.065]} rotation={[Math.PI / 2, 0, 0]} 
+            scale={[0.052, 0.1, 0.052]} 
+            onClick={handleVisit}
           />
-          <mesh name="button-m-left" geometry={nodes['button-m-left'].geometry} material={materials['button-m-right']} position={[0.224, 0.393, 0.06]} rotation={[Math.PI / 2, 0, 0]} scale={[0.046, 0.037, 0.046]} 
+          <mesh ref={lBtnRef} name="button-m-left" geometry={nodes['button-m-left'].geometry} material={materials['button-m-right']} position={[0.224, 0.393, 0.06]} rotation={[Math.PI / 2, 0, 0]} scale={[0.046, 0.1, 0.046]} 
             onClick={previousCard}
           />
-          <mesh name="button-m-right" geometry={nodes['button-m-right'].geometry} material={materials['button-m-right']} position={[0.224, 0.393, 0.06]} rotation={[Math.PI / 2, 0, 0]} scale={[0.046, 0.037, 0.046]} 
+          <mesh ref={rBtnRef} name="button-m-right" geometry={nodes['button-m-right'].geometry} material={materials['button-m-right']} position={[0.224, 0.393, 0.06]} rotation={[Math.PI / 2, 0, 0]} scale={[0.046, 0.1, 0.046]} 
             onClick={nextCard}
           />
         </group>

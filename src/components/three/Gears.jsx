@@ -52,7 +52,7 @@ export function Gears({ pages, lookAtLever, iCard, setToast}) {
   const { drop } = useSpring({
     drop: visitOn ? [2.79, 0, 0] : [0, 0, 0],
     //onChange: () => invalidate(),
-    //onResolve: () => setVisitOn(false)
+    onResolve: () => setVisitOn(false)
   })
 
   const toggleOnOff = () => { 
@@ -68,7 +68,13 @@ export function Gears({ pages, lookAtLever, iCard, setToast}) {
     setOnOff(!onOff) 
   }
 
-  
+  const handleDrop = () => {
+    if(!visitOn){
+      setToast('No site to visit.')
+    }
+
+    setVisitOn(true)
+  }
   
   
   return (
@@ -122,7 +128,7 @@ export function Gears({ pages, lookAtLever, iCard, setToast}) {
         <animated.group name="dropper-top" position={[0.594, 1.396, 0.762]} 
           rotation={drop}
           ref={dropperRef}
-          onClick={() => setVisitOn(!visitOn)}
+          onClick={handleDrop}
           onPointerOver={(event) => document.body.style.cursor = 'pointer'}
           onPointerOut={(event) => document.body.style.cursor = 'auto'}
         >
