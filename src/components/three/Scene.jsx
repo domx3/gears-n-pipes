@@ -28,7 +28,7 @@ export default function Scene({ pages, lookHome, setToast }) {
 
   useEffect(()=>{
     //disable pan  
-    //cameraControlsRef.current.mouseButtons.right = 0
+    cameraControlsRef.current.mouseButtons.right = 0
     document.body.style.backgroundColor = '#131417'
     return ()=> document.body.style.backgroundColor = '#334155'
   },[])
@@ -64,21 +64,14 @@ export default function Scene({ pages, lookHome, setToast }) {
         
         <Environment files="pipe_1k.hdr" intensity='0.1' />
 
-         <CameraControls ref={cameraControlsRef} 
+        <CameraControls ref={cameraControlsRef} 
           
-         /*  minDistance={2.3}
+          minDistance={2.3}
           maxDistance={8}
           minPolarAngle={degToRad(30)}
           maxPolarAngle={degToRad(100)}
           minAzimuthAngle={-degToRad(70)}
           maxAzimuthAngle={degToRad(70)} 
-          smoothTime={0.33} */
-          minDistance={0}
-          maxDistance={8}
-          minPolarAngle={degToRad(30)}
-          maxPolarAngle={degToRad(100)}
-          minAzimuthAngle={degToRad(-360)}
-          maxAzimuthAngle={degToRad(360)} 
           smoothTime={0.33}
         />
 

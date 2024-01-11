@@ -13,7 +13,7 @@ export default function FrontPage({lookHome, setToast, mobile, frontPage, showDe
   const cameraPosition = mobile ? [3, 2, 5.5] : [0, 3, 6.5]
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch("/gears-n-pipes/data.json")
       .then((response) => response.json())
       .then((data) => {
         setPages(data.pages)
@@ -30,7 +30,7 @@ export default function FrontPage({lookHome, setToast, mobile, frontPage, showDe
           <h1 
             className=' text-4xl font-bold text-center text-slate-50'
             >
-              Gears-n-pipes
+              Gears-n-Pipes
           </h1>
         </span>
         <div className='flex flex-col items-center'>

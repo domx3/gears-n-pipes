@@ -13,15 +13,16 @@ export default function FrontOptions({ lookHome, showDesktop, showMobile}) {
       <div className='w-full minh flex p-8 justify-center items-center phone-gears cursor-pointer bg-slate-400 flex-wrap' 
         onClick={showMobile}
       > 
+        <PhoneSvg 
+          className='hover:scale-125 ease-in-out duration-500 '
+        />
         <div className='block ml-[10%]'>
           <h1 className='font-bold text-3xl mb-4 text-slate-100'>Mobile</h1>
           <p className='text-xl font-light text-slate-200'>
             A lighter version with portrait orientation.
           </p>
         </div>
-        <PhoneSvg 
-          className='hover:scale-125 ease-in-out duration-500 '
-        />
+        
       </div>
 
       <div className=' w-full minh p-8 flex justify-center items-center desktop-gears cursor-pointer bg-slate-500 flex-wrap' 
