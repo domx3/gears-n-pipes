@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { CameraControls, Clouds, Environment } from '@react-three/drei'
 import { Phone } from './Phone'
 import SkyClouds from './SkyClouds'
+import SkyGround from './SkyGround'
 //import { useControls } from 'leva'
 
 function SceneMobile({ pages, lookHome, setToast}) {
@@ -40,6 +41,8 @@ function SceneMobile({ pages, lookHome, setToast}) {
           maxDistance={8}
           smoothTime={0.33}
         />
+        
+        <SkyGround />
 
         <Phone
           pages={pages}

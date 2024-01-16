@@ -99,10 +99,10 @@ const {x1, y1} = useControls({
         </mesh> */}
 
       <group name="phone" rotation={[0.0, 0.0, -0.0]}>
-        <group name="case" position={[0.012, 1.22, -0.002]} scale={[0.85, 0.85, 0.057]} castShadow>
-          <mesh name="Cube012" geometry={nodes.Cube012.geometry} material={materials['phone-case']} />
-          <mesh name="Cube012_1" geometry={nodes.Cube012_1.geometry} material={materials.Metal} />
-          <mesh name="Cube012_2" geometry={nodes.Cube012_2.geometry} material={materials.slider} />
+        <group name="case" position={[0.012, 1.22, -0.002]} scale={[0.85, 0.85, 0.057]} >
+          <mesh name="Cube012" geometry={nodes.Cube012.geometry} material={materials['phone-case']}castShadow />
+          <mesh name="Cube012_1" geometry={nodes.Cube012_1.geometry} material={materials.Metal} castShadow/>
+          <mesh name="Cube012_2" geometry={nodes.Cube012_2.geometry} material={materials.slider} castShadow/>
         </group>
         
         <group name="buttons" 
